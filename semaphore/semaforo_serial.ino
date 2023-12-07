@@ -1,7 +1,7 @@
 void setup() {
   Serial.begin(9600);           // initialize serial:
   DDRD = DDRD | 0b11111100;     // configure port direction
-  PORTD = 0b11111100;           // init dos LEDs
+  PORTD = 0b11111100;           // init of LEDs
 }
 
 void loop() {
@@ -9,6 +9,7 @@ void loop() {
     byte command = Serial.read();
     if (command == 'A') {
       while (1) {
+        // Blink yellow LEDs (semaphore Out of Service)
         PORTD = 0b10110111;
         delay(1000);                       // wait for a second
         PORTD = 0b11111111;
