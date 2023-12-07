@@ -1,2 +1,2 @@
 # IPVC-ESTG
-Simle stuff for my classes
+Simple stuff for my classes
