@@ -3,15 +3,15 @@
 ![image](fritzing.jpg)<br />
 <br />
 Using MARS MIPS simnulator, to access some port of the host system, use the appropriate SYSCALL from the following examples:<br />
-
-- fopen():
-  li	$v0, 13
-	la	$a0, "/dev/ttyUSB0"		# path to the file corresponding to the serial port
-	li	$a1, 1				        # Read: $a1=0, Write: $a1=1
-	li	$a2, 0
-	syscall
-	move	$t0, $v0			      # Saves the file descriptor in register $t0
-
+<br />
+- fopen():<br />
+	li	$v0, 13<br />
+	la	$a0, "/dev/ttyUSB0"	# path to the file corresponding to the serial port<br />
+	li	$a1, 1			# Read: $a1=0, Write: $a1=1<br />
+	li	$a2, 0<br />
+	syscall<br />
+	move	$t0, $v0		# Saves the file descriptor in register $t0<br />
+<br />
 - fwrite():<br />
 	li	$v0, 15<br />
 	move	$a0, $t0	# file descriptor is in register $t0<br />
