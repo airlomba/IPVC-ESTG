@@ -12,25 +12,27 @@ Using MARS MIPS simnulator, to access some port of the host system, use the appr
 	syscall
 	move	$t0, $v0			      # Saves the file descriptor in register $t0
 
-- fwrite():
-  li	$v0, 15
-	move	$a0, $t0		        # file descriptor is in register $t0
-	la	$a1, buffer		        # buffer holds the string to be written
-	li	$a2, N		            # N is the number of characters in the string
-	syscall
+- fwrite():<br />
+	li	$v0, 15<br />
+	move	$a0, $t0	# file descriptor is in register $t0<br />
+	la	$a1, buffer	# buffer holds the string to be written<br />
+	li	$a2, N		# N is the number of characters in the string<br />
+	syscall<br />
+<br />
+- fread():<br />
+  	li	$v0, 14<br />
+	move	$a0, $t0	# file descriptor is in register $t0<br />
+	li	$a1, buffer	# input buffer address in data segment (e.g.: buffer .space 100)<br />
+	syscall<br />
+<br />
+- fclose():<br />
+	li	$v0, 16<br />
+	move	$a0, $t0	# file descriptor is in register $t0<br />
+	syscall<br />
+<br />
+- delay():<br />
+	li	$v0, 32<br />
+	li	$a0, 2000	# pause 2000 ms (2 seconds)<br />
+	syscall<br />
+ <br />
 
-- fread():
-  li	$v0, 14
-	move	$a0, $t0		        # file descriptor is in register $t0
-	li	$a1, buffer		        # input buffer address in data segment (e.g.: buffer .space 100)
-	syscall
-
-- fclose():
-  li	$v0, 16
-	move	$a0, $t0		        # file descriptor is in register $t0
-	syscall
-
-- delay():
-  li	$v0, 32
-	li	$a0, 2000	            # pause 2000 ms (2 seconds)
-	syscall
